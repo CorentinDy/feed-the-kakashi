@@ -46,7 +46,7 @@ app.use('/bts-css', express.static(path.join(__dirname + '/node_modules/bootstra
 app.use('/bts-js', express.static(path.join(__dirname + '/node_modules/bootstrap/dist/js')));
 app.use('/fa-css', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/css/')));
 app.use('/fa-js', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/js/')));
-app.use('/fa-fonts', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/webfonts/')));
+app.use('/webfonts', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/webfonts/')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

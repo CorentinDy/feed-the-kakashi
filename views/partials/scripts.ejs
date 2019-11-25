@@ -1,14 +1,41 @@
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
 <script href="/bts-js/bootstrap.min.js"></script>
 <script href="/fa-js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-$(document).ready(function () {
-    console.log('🐱');
-});
+    // $(document).ready(function () {
+    //     console.log('🐱');
+    //     // (function ($) {
+    //     //     $(".flatpickr").flatpickr({
+    //     //         enableTime: true,
+    //     //     });
+    //     // })(jQuery);
+    //     var element = document.getElementsByClassName("flatpickr");
+    //     console.log(element);
+    //     element.flatpickr({
+    //         enableTime: true
+    //     })
+
+    // });
+
+    $(document).ready(function () {
+        console.log("ready!");
+        $(".flatpickr").flatpickr({ enableTime: true })
+
+    });
+
+    window.onload = function () {
+        if (window.jQuery) {
+            // jQuery is loaded
+            console.log("Yeah!");
+        } else {
+            // jQuery is not loaded
+            console.log("Doesn't Work");
+        }
+    }
 </script>

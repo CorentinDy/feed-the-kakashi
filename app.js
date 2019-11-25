@@ -47,6 +47,7 @@ app.use('/bts-js', express.static(path.join(__dirname + '/node_modules/bootstrap
 app.use('/fa-css', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/css/')));
 app.use('/fa-js', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/js/')));
 app.use('/webfonts', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/webfonts/')));
+app.use('/flatpickr', express.static(path.join(__dirname + '/node_modules/flatpickr/dist/')))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

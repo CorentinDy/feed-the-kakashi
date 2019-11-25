@@ -25,7 +25,12 @@
 
     $(document).ready(function () {
         console.log("ready!");
-        $(".flatpickr").flatpickr({ enableTime: true })
+        $(".flatpickrOne").flatpickr({ enableTime: true })
+        $(".flatpickrMult").flatpickr({
+            enableTime: true,
+            mode: "multiple",
+            time_24hr: true
+        })
 
     });
 

@@ -17,7 +17,9 @@
     "flatpickr": "^4.6.3",
     "helmet": "^3.21.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "izitoast": "^1.4.0",
+    "morgan": "~1.9.1",
+    "pigpio": "^2.0.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2"

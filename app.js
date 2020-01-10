@@ -1,27 +1,27 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser')
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
-var csrf = require('csurf')
+let csrf = require('csurf');
 
-var helmet = require('helmet');
-var session = require('express-session');
+let helmet = require('helmet');
+let session = require('express-session');
 
-// setup route middlewares
-var csrfProtection = csrf({ cookie: true })
-var parseForm = bodyParser.urlencoded({ extended: false })
+// setup route middleware
+let csrfProtection = csrf({ cookie: true });
+let parseForm = bodyParser.urlencoded({ extended: false });
 
-var app = express();
+let app = express();
 //secure the app
 app.use(helmet());
 app.disable('x-powered-by');
-app.set('trust proxy', 1) // trust first proxy
+app.set('trust proxy', 1); // trust first proxy
 app.use(session({
   secret: 'f33d7h3k4k45h1',
   name: 'sessionId',
@@ -47,7 +47,7 @@ app.use('/bts-js', express.static(path.join(__dirname + '/node_modules/bootstrap
 app.use('/fa-css', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/css/')));
 app.use('/fa-js', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/js/')));
 app.use('/webfonts', express.static(path.join(__dirname + '/node_modules/@fortawesome/fontawesome-free/webfonts/')));
-app.use('/flatpickr', express.static(path.join(__dirname + '/node_modules/flatpickr/dist/')))
+app.use('/flatpickr', express.static(path.join(__dirname + '/node_modules/flatpickr/dist/')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

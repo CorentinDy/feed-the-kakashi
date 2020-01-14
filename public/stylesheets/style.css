@@ -119,7 +119,7 @@ code {
   top: 35%;
   height: 30%;
   width: 31%;
-  background: #fff;
+  background: #D8E6BB;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 .eye::after {
@@ -291,7 +291,7 @@ code {
   left: 50%;
   height: 6%;
   width: 10%;
-  background: #fff;
+  background: #f888a8d9;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;

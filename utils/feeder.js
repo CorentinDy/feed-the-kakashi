@@ -9,7 +9,7 @@ function feed() {
     motor.servoWrite(2500);
     setTimeout(function(){
         motor.servoWrite(1500);
-    }, 5000);
+    }, 200);
 }
 
 // const button = new Gpio(14, {

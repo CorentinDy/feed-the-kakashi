@@ -79,19 +79,19 @@ app.use(function (err, req, res, next) {
 ////////////////////////////////////////////////
 // manage btn press for manual feeder trigger //
 ////////////////////////////////////////////////
-const button = new Gpio(14, {
-  mode: Gpio.INPUT,
-  pullUpDown: Gpio.PUD_UP,
-  alert: true
-});
+//const button = new Gpio(14, {
+//  mode: Gpio.INPUT,
+//  pullUpDown: Gpio.PUD_UP,
+//  alert: true
+//});
 
 // Level must be stable for 10 ms before an alert event is emitted.
-button.glitchFilter(10000);
-button.on('alert', (level, tick) => {
-  if (level === 0) {
-    feeder();
-  }
-});
+//button.glitchFilter(10000);
+//button.on('alert', (level, tick) => {
+//  if (level === 0) {
+//    feeder();
+//  }
+//});
 
 
 module.exports = app;

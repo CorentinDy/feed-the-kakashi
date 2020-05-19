@@ -1,17 +1,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
 <script src="/bts-js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/fa-js/all.min.js" type="text/javascript"></script>
 <script src="/notif/js/iziToast.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr" type="text/javascript"></script>
+<script src="/javascript/mini-event-calendar.min.js" type="text/javascript"></script>
 
 <script>
+
+    var sameDaylastWeek = new Date().setDate(new Date().getDate() - 7);
+    var someDaynextMonth = new Date().setDate(new Date().getDate() + 31);
+
+    // All dates should be provided in timestamps
+    var sampleEvents = [
+        {
+            title: "Soulful sundays bay area",
+            date: sameDaylastWeek, // Same day as today, last week
+            link: "https://www.eventbrite.com/e/soulful-sundays-bay-area-edition-tickets-55214242285?aff=ehomecard"
+        },
+        {
+            title: "London Comicon",
+            date: new Date().getTime(), // Today
+            link: "https://www.eventbrite.co.uk/e/london-film-comic-con-summer-2019-tickets-49472593860?aff=ebdssbdestsearch"
+        },
+        {
+            title: "Youth Athletic Camp",
+            date: someDaynextMonth, // Some day as today, next month
+            link: "https://www.eventbrite.com/e/leaner-stronger-faster-tm-youth-athletic-camp-2021-tickets-38245970728?aff=ebdssbdestsearch"
+        }
+    ];
+
     $(document).ready(function () {
         console.log("ready!");
-        $(".flatpickrOne").flatpickr({enableTime: true})
+        $(".flatpickrOne").flatpickr({ enableTime: true })
         $(".flatpickrMult").flatpickr({
             enableTime: true,
             mode: "multiple",
@@ -32,6 +56,17 @@
 
                 },
             });
+        });
+
+        // Init Calendar
+        $("#calendar").MEC({
+            events: sampleEvents
+        });
+
+        // Make calendar start on monday
+        $("#calendar2").MEC({
+            from_monday: true,
+            events: sampleEvents
         });
 
     });

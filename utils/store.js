@@ -86,6 +86,8 @@ function read() {
             result = rows;
         }
     });
+    console.log("from read function")
+    console.log(result)
     return result
 }
   

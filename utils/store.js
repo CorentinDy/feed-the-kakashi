@@ -15,7 +15,7 @@ function store() {
     db.serialize(function () {
 
         // insert one row into the langs table
-        db.run(`INSERT INTO main.feed(feed_title,feed_date,feed_action) VALUES(?,?,?)`, ['feed',new Date().getTime(),'true'], function (err) {
+        db.run(`INSERT INTO main.feed(feed_title,feed_date,feed_action) VALUES(?,?,?)`, ['feed', new Date().getTime(), 'true'], function (err) {
             if (err) {
                 throw (err);
             }
@@ -61,4 +61,6 @@ function check() {
 }
 
 
-module.exports = store, check, test_db;
+module.exports.store = store;
+module.exports.check = check;
+module.exports.test = test_db;

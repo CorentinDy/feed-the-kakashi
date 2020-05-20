@@ -1,13 +1,12 @@
 const Gpio = require('pigpio').Gpio;
 
-
 function feed() {
-    const motor = new Gpio(13, {mode: Gpio.OUTPUT});
+    const motor = new Gpio(13, { mode: Gpio.OUTPUT });
     // Init the motor GPIO
     motor.servoWrite(1500);
 
     motor.servoWrite(2500);
-    setTimeout(function(){
+    setTimeout(function () {
         motor.servoWrite(1500);
     }, 200);
 }

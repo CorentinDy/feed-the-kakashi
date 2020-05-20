@@ -8,6 +8,11 @@ let logger = require('morgan');
 // feeder requirements
 const Gpio = require('pigpio').Gpio;
 let feeder = require('./utils/feeder');
+let check = require('./utils/verify_db');
+let db = require('./utils/store');
+
+// Init DB
+check();
 
 
 let indexRouter = require('./routes/index');
@@ -58,7 +63,7 @@ app.use('/notif', express.static(path.join(__dirname + '/node_modules/izitoast/d
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/feed',feedRouter);
+app.use('/feed', feedRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

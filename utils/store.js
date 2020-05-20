@@ -77,7 +77,7 @@ function read() {
 
     // Print the records as JSON
     db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
-        console.log(JSON.stringify(rows));
+        return JSON.stringify(rows);
     });
 }
 

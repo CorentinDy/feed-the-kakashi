@@ -81,8 +81,8 @@ function read() {
         if (err) {
             throw (err)
         } else {
-            console.log(JSON.stringify(rows));
-            return JSON.stringify(rows);
+            // console.log(JSON.stringify(rows));
+            return rows;
         }
     });
 }

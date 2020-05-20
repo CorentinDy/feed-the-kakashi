@@ -1,5 +1,5 @@
 const Gpio = require('pigpio').Gpio;
-const db = require('./utils/store');
+const db = require('./store');
 
 
 function feed() {

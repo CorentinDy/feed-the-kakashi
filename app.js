@@ -8,12 +8,14 @@ let logger = require('morgan');
 // feeder requirements
 const Gpio = require('pigpio').Gpio;
 let feeder = require('./utils/feeder');
-let check = require('./utils/verify_db');
 let db = require('./utils/store');
+let test = db.test_db;
+let store = db.store;
+let check = db.check;
 
 // Init DB
-check();
-
+check(); // Check if file is present
+test(); // Test if table is created && connection
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');

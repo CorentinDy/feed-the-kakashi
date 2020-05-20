@@ -14,10 +14,9 @@
 
     // All dates should be provided in timestamps
     // var sampleEvents = [{ "title": "feed", "date": 1589965629058 }, { "title": "feed", "date": 1589967097232 }, { "title": "feed", "date": 1589967169096 }, { "title": "feed", "date": 1589967179116 }, { "title": "feed", "date": 1589967182812 }, { "title": "feed", "date": 1589967183846 }];
-    <% if (myVar) { %>
+    <% if (data) { %>
         sampleEvents = JSON.parse('<%- JSON.stringify(data) %>');
-    <% } %>
-    <% else { %>
+    <% } else { %>
         sampleEvents =[];
     <% } %>
 

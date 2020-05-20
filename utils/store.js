@@ -76,21 +76,22 @@ function read() {
             console.log('Connected to the data database.');
         }
     });
-
-    // Print the records as JSON
-    db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
-        if (err) {
-            throw (err)
-        } else {
-            // console.log(JSON.stringify(rows));
-            result = rows;
-        }
+    db.serialize(function () {
+        // Print the records as JSON
+        db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
+            if (err) {
+                throw (err)
+            } else {
+                // console.log(JSON.stringify(rows));
+                result = rows;
+            }
+        });
     });
     console.log("from read function")
     console.log(result)
     return result
 }
-  
+
 
 module.exports.store = store;
 module.exports.check = check;

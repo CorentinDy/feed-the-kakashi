@@ -17,6 +17,7 @@ function store() {
         // insert one row into the langs table
         db.run(`INSERT INTO main.feed(feed_title,feed_date,feed_action) VALUES(?,?,?)`, ['feed', new Date().getTime(), 'true'], function (err) {
             if (err) {
+                console.log(err);
                 throw (err);
             }
             console.log(`A row has been inserted`);

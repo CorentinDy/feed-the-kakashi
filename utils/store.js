@@ -76,9 +76,9 @@ function read() {
             console.log('Connected to the data database.');
         }
     });
-    db.serialize(function (callback) {
+    db.serialize(function () {
         // Print the records as JSON
-        db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
+        db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows, callback) {
             if (err) {
                 throw (err)
             } else {

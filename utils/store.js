@@ -84,6 +84,8 @@ function read() {
             } else {
                 // console.log(JSON.stringify(rows));
                 result = rows;
+                console.log("from the CORE")
+                console.log(rows)
             }
         });
     });

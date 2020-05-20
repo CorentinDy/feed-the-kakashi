@@ -71,13 +71,18 @@ function read() {
     const db = new sqlite3.Database('./db/data.db', (err) => {
         if (err) {
             throw (err)
+        } else {
+            console.log('Connected to the data database.');
         }
-        console.log('Connected to the data database.');
     });
 
     // Print the records as JSON
     db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
-        return JSON.stringify(rows);
+        if (err) {
+            throw (err)
+        } else {
+            return JSON.stringify(rows);
+        }
     });
 }
 

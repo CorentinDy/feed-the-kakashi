@@ -1,38 +1,16 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html> -->
-<!-- views/pages/index.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <% include ../partials/head %>
 </head>
-
 <body>
-
   <header>
     <% include ../partials/header %>
   </header>
-
-
   <main role="main">
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron jumbotron-home">
       <div class="container cat-container">
-        <!-- <h1 class="display-3">Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p> -->
-        <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Feed me NOW !</a></p> -->
         <div class="cat">
           <div class="ear ear--left"></div>
           <div class="ear ear--right"></div>
@@ -48,28 +26,8 @@
         </div>
       </div>
     </div>
-
     <div class="container">
-      <!-- Example row of columns -->
       <div class="row">
-        <!--        <div class="col-md-4">-->
-        <!--          <h2>One Time Feed</h2>-->
-        <!--          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris-->
-        <!--            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.-->
-        <!--            Donec sed odio dui. </p>-->
-        <!--          <label>-->
-        <!--            <input class="flatpickrOne" type="text" placeholder="Select Date and Time" readonly="readonly">-->
-        <!--          </label>-->
-        <!--          <p><a class="btn btn-secondary" role="button">View details »</a></p>-->
-        <!--        </div>-->
-        <!--        <div class="col-md-4">-->
-        <!--          <h2>Mutliple Time Feed</h2>-->
-        <!--          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris-->
-        <!--            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.-->
-        <!--            Donec sed odio dui. </p>-->
-        <!--            <input class="flatpickrMult" type="text" placeholder="Select Date and Time" readonly="readonly">-->
-        <!--          <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>-->
-        <!--        </div>-->
         <div class="col-md-4">
           <h2>Feed NOW !</h2>
           <p>Your cat is meowing and really need to be feed, right now ! It is a matter of life or death, you can't just
@@ -77,23 +35,18 @@
             you forgot to feed one of them...<b>Beware</b>.</p>
           <p><a class="btn btn-danger feednow" role="button">Feed NOW !</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-6">
           <div id="calendar"></div>
         </div>
       </div>
-
       <hr>
-
     </div> <!-- /container -->
-
   </main>
-
   <footer class="footer">
     <% include ../partials/footer %>
   </footer>
-
   <% include ../partials/scripts %>
-
 </body>
-
 </html>

@@ -10,7 +10,7 @@ const Gpio = require('pigpio').Gpio;
 const db = require('./utils/store');
 
 // Init DB
-db.check(); // Check if file is present
+// db.check(); // Check if file is present
 db.test(); // Test if table is created && connection
 
 let indexRouter = require('./routes/index');

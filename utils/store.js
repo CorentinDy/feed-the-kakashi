@@ -1,102 +1,39 @@
-const sqlite3 = require('sqlite3').verbose();
-const fs = require("fs")
-const path = "./db/data.db"
-
-
+const db = require('better-sqlite3')('./db/data.db')
 
 function store() {
-    const db = new sqlite3.Database('./db/data.db', (err) => {
-        if (err) {
-            throw (err)
-        }
-        console.log('Connected to the data database.');
-    });
-
-    db.serialize(function () {
-
-        // insert one row into the langs table
-        db.run(`INSERT INTO main.feed(feed_title,feed_date,feed_action) VALUES(?,?,?)`, ['feed', new Date().getTime(), 'true'], function (err) {
-            if (err) {
-                console.log(err);
-                throw (err);
-            }
-            console.log(`A row has been inserted`);
-        });
-    });
-
-    db.close();
-
-
-}
-
-function test_db() {
-    const db = new sqlite3.Database('./db/data.db', (err) => {
-        if (err) {
-            throw (err)
-        }
-        console.log('Connected to the data database.');
-    });
-    db.serialize(function () {
-
-        db.run('CREATE TABLE IF NOT EXISTS feed ( \
-            feed_id INTEGER PRIMARY KEY, \
-            feed_title TEXT NOT NULL, \
-            feed_date datetime NOT NULL, \
-            feed_action INTEGER NOT NULL \
-        );');
-
-    });
-
-    db.close();
-}
-
-function check() {
-
     try {
-        if (fs.existsSync(path)) {
-            console.log("File exists.")
-        } else {
-            try {
-                fs.writeFileSync('./db/data.db');
-            } catch (e) {
-                console.log("Cannot write file ", e);
-            }
-        }
+        const stmt = db.prepare('INSERT INTO main.feed(feed_title,feed_date,feed_action) VALUES(?,?,?)');
+        stmt.run('feed', new Date().getTime(), 'true')
     } catch (err) {
-        console.error(err)
+        console.log(err)
+        throw err; 
     }
 }
 
-function read(callback) {
-    let result;
-    const db = new sqlite3.Database('./db/data.db', (err) => {
-        if (err) {
-            throw (err)
-        } else {
-            console.log('Connected to the data database.');
-        }
-    });
-    db.serialize(function () {
-        // Print the records as JSON
-        db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
-            if (err) {
-                throw (err)
-            } else {
-                // console.log(JSON.stringify(rows));
-                result = rows;
-                console.log("from the CORE")
-                console.log(rows)
-                // return callback(rows);
-            }
-        });
-    });
-    console.log("from read function")
-    console.log(result)
-    callback(result);
+function test_db() {
+    try {
+        const stmt = db.prepare('CREATE TABLE IF NOT EXISTS feed ( \
+        feed_id INTEGER PRIMARY KEY, \
+        feed_title TEXT NOT NULL, \
+        feed_date datetime NOT NULL, \
+        feed_action INTEGER NOT NULL \
+    );');
+        stmt.run()
+    } catch (err) {
+        throw err; 
+    }
+   
 }
 
+function read() {
+    try {
+        const stmt = db.prepare('SELECT feed_title as title, feed_date as date FROM main.feed').all();
+        return stmt;
+    } catch{
+        throw err; 
+    }
+}
 
 module.exports.store = store;
-module.exports.check = check;
 module.exports.test = test_db;
 module.exports.read = read;

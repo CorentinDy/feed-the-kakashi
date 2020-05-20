@@ -67,7 +67,7 @@ function check() {
     }
 }
 
-function read() {
+function read(callback) {
     let result;
     const db = new sqlite3.Database('./db/data.db', (err) => {
         if (err) {
@@ -78,7 +78,7 @@ function read() {
     });
     db.serialize(function () {
         // Print the records as JSON
-        db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows, callback) {
+        db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
             if (err) {
                 throw (err)
             } else {
@@ -86,13 +86,13 @@ function read() {
                 result = rows;
                 console.log("from the CORE")
                 console.log(rows)
-                return callback(rows);
+                // return callback(rows);
             }
         });
     });
     console.log("from read function")
     console.log(result)
-    // return result
+    callback(result);
 }
 
 

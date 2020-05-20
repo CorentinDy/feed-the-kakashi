@@ -84,15 +84,15 @@ function read() {
             } else {
                 // console.log(JSON.stringify(rows));
                 result = rows;
-                callback(rows);
                 console.log("from the CORE")
                 console.log(rows)
+                return callback(rows);
             }
         });
     });
     console.log("from read function")
     console.log(result)
-    return result
+    // return result
 }
 
 

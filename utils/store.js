@@ -76,7 +76,7 @@ function read() {
             console.log('Connected to the data database.');
         }
     });
-    db.serialize(function () {
+    db.serialize(function (callback) {
         // Print the records as JSON
         db.all("SELECT feed_title as title, feed_date as date FROM main.feed", function (err, rows) {
             if (err) {
@@ -84,6 +84,7 @@ function read() {
             } else {
                 // console.log(JSON.stringify(rows));
                 result = rows;
+                callback(rows);
                 console.log("from the CORE")
                 console.log(rows)
             }

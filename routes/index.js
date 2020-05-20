@@ -4,8 +4,8 @@ const db = require('../utils/store');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  console.log("from index route")
-  console.log(db.read());
+  // console.log("from index route")
+  // console.log(db.read());
   res.render('pages/index', { title: 'Express', data: db.read() });
 });
 

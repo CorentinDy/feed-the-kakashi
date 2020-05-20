@@ -81,11 +81,12 @@ function read() {
         if (err) {
             throw (err)
         } else {
+            console.log(JSON.stringify(rows));
             return JSON.stringify(rows);
         }
     });
 }
-
+  
 
 module.exports.store = store;
 module.exports.check = check;

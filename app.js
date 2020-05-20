@@ -7,7 +7,7 @@ let logger = require('morgan');
 
 // feeder requirements
 const Gpio = require('pigpio').Gpio;
-let db = require('./utils/store');
+const db = require('./utils/store');
 
 // Init DB
 db.check(); // Check if file is present

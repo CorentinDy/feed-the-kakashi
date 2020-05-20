@@ -1,4 +1,6 @@
 const Gpio = require('pigpio').Gpio;
+const db = require('./utils/store');
+
 
 function feed() {
     const motor = new Gpio(13, { mode: Gpio.OUTPUT });
@@ -9,6 +11,7 @@ function feed() {
     setTimeout(function () {
         motor.servoWrite(1500);
     }, 200);
+    db.store();
 }
 
 // const button = new Gpio(14, {

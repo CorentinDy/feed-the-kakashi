@@ -2,15 +2,15 @@ const sqlite3 = require('sqlite3').verbose();
 const fs = require("fs")
 const path = "./db/data.db"
 
-const db = new sqlite3.Database('./db/data.db', (err) => {
-    if (err) {
-        throw (err)
-    }
-    console.log('Connected to the data database.');
-});
+
 
 function store() {
-
+    const db = new sqlite3.Database('./db/data.db', (err) => {
+        if (err) {
+            throw (err)
+        }
+        console.log('Connected to the data database.');
+    });
 
     db.serialize(function () {
 
@@ -30,6 +30,12 @@ function store() {
 }
 
 function test_db() {
+    const db = new sqlite3.Database('./db/data.db', (err) => {
+        if (err) {
+            throw (err)
+        }
+        console.log('Connected to the data database.');
+    });
     db.serialize(function () {
 
         db.run('CREATE TABLE IF NOT EXISTS feed ( \

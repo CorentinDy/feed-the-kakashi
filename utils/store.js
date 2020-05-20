@@ -68,6 +68,7 @@ function check() {
 }
 
 function read() {
+    let result;
     const db = new sqlite3.Database('./db/data.db', (err) => {
         if (err) {
             throw (err)
@@ -82,9 +83,10 @@ function read() {
             throw (err)
         } else {
             // console.log(JSON.stringify(rows));
-            return rows;
+            result = rows;
         }
     });
+    return result
 }
   
 

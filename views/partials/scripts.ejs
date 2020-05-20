@@ -11,42 +11,47 @@
 
 <script>
 
-  
+
     // All dates should be provided in timestamps
     // var sampleEvents = [{ "title": "feed", "date": 1589965629058 }, { "title": "feed", "date": 1589967097232 }, { "title": "feed", "date": 1589967169096 }, { "title": "feed", "date": 1589967179116 }, { "title": "feed", "date": 1589967182812 }, { "title": "feed", "date": 1589967183846 }];
-    var sampleEvents = <%- data %>;
+    <% if (myVar) { %>
+        sampleEvents = JSON.parse('<%- JSON.stringify(data) %>');
+    <% } %>
+    <% else { %>
+        sampleEvents =[];
+    <% } %>
 
-    $(document).ready(function () {
-        console.log("ready!");
-        $(".flatpickrOne").flatpickr({ enableTime: true })
-        $(".flatpickrMult").flatpickr({
-            enableTime: true,
-            mode: "multiple",
-            time_24hr: true
-        })
+        $(document).ready(function () {
+            console.log("ready!");
+            $(".flatpickrOne").flatpickr({ enableTime: true })
+            $(".flatpickrMult").flatpickr({
+                enableTime: true,
+                mode: "multiple",
+                time_24hr: true
+            })
 
-        // FEED NOW !
-        $('.feednow').on('click', function () {
-            let Status = $(this).val();
-            $.ajax({
-                type: 'POST',
-                url: '/feed',
-                success: function (data) {
-                    iziToast.success({
-                        title: 'Hey ! : ',
-                        message: data
-                    });
+            // FEED NOW !
+            $('.feednow').on('click', function () {
+                let Status = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/feed',
+                    success: function (data) {
+                        iziToast.success({
+                            title: 'Hey ! : ',
+                            message: data
+                        });
 
-                },
+                    },
+                });
             });
-        });
 
-        // Init Calendar
-        $("#calendar").MEC({
-            from_monday: true,
-            events: sampleEvents
-        });
+            // Init Calendar
+            $("#calendar").MEC({
+                from_monday: true,
+                events: sampleEvents
+            });
 
-    });
+        });
 
 </script>

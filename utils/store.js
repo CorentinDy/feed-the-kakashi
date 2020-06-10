@@ -1,9 +1,12 @@
 const db = require('better-sqlite3')('./db/data.db')
 
-function store() {
-    try {
+async function store() {
+    try { 
+        let time = process.hrtime();
         const stmt = db.prepare('INSERT INTO main.feed(feed_title,feed_date,feed_action) VALUES(?,?,?)');
         stmt.run('feed', new Date().getTime(), 'true')
+         time = process.hrtime(time);
+          console.log("db store " + ((time[0] + time[1] / 1E9) * 1000) + " ms"); // <<<=== Should be far less that 1 ms 
     } catch (err) {
         console.log(err)
         throw err; 

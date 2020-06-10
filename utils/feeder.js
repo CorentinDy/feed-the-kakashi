@@ -1,17 +1,46 @@
 const Gpio = require('pigpio').Gpio;
-const db = require('./store');
+//const db = require('./store');
+//const motor = new Gpio(13, { mode: Gpio.OUTPUT });
 
+
+// function on() {
+//     motor.servoWrite(1500);
+
+//     motor.servoWrite(2500);
+
+//     db.store();
+// }
+
+// function off(){
+//     motor.servoWrite(1500);
+// }
 
 function feed() {
+    let time = process.hrtime();
+
     const motor = new Gpio(13, { mode: Gpio.OUTPUT });
     // Init the motor GPIO
-    motor.servoWrite(1500);
+    // motor.servoWrite(1500); <<< === REMOVE THIS LINE === >>>
 
     motor.servoWrite(2500);
+
+    time = process.hrtime(time);
+    console.log("pigpio1 " + ((time[0] + time[1] / 1E9) * 1000) + " ms"); // <<<=== Should be far less that 1 ms === >>>
+
+    time = process.hrtime();
     setTimeout(function () {
         motor.servoWrite(1500);
+
+        time = process.hrtime(time);
+        console.log("pigpio2 " + ((time[0] + time[1] / 1E9) * 1000) + " ms"); // <<<=== Should be approximately 200 ms === >>>
     }, 200);
-    db.store();
+
+
+
+    
+    // db.store();
+    // time = process.hrtime(time);
+    // console.log("store " + ((time[0] + time[1] / 1E9) * 1000) + " ms"); // <<<=== Should be far less that 1 ms === >>>
 }
 
 
@@ -38,4 +67,6 @@ function feed() {
 
 
 
+// module.exports.on = on;
+// module.exports.off = off;
 module.exports = feed;

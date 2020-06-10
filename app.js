@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 let logger = require('morgan');
 
 // feeder requirements
-const Gpio = require('pigpio').Gpio;
+//const Gpio = require('pigpio').Gpio;
 const db = require('./utils/store');
 
 // Init DB

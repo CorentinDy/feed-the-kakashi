@@ -4,7 +4,7 @@ const db = require('../utils/store');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('pages/index', { title: 'Express', data: db.read() });
+  res.render('pages/index', { title: 'Express' });
 });
 
 module.exports = router;

@@ -23,10 +23,10 @@ let session = require('express-session');
 
 // setup route middleware
 let csrfProtection = csrf({ cookie: true });
-let parseForm = bodyParser.urlencoded({ extended: false });
 
 let app = express();
 //secure the app
+
 app.use(helmet());
 app.disable('x-powered-by');
 app.set('trust proxy', 1); // trust first proxy
@@ -38,6 +38,7 @@ app.use(session({
   cookie: { secure: true }
 })
 );
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

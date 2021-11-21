@@ -14,7 +14,6 @@ let logger = require('morgan');
 // db.test(); // Test if table is created && connection
 
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
 let feedRouter = require('./routes/feed');
 
 let csrf = require('csurf');
@@ -60,7 +59,6 @@ app.use('/notif', express.static(path.join(__dirname + '/node_modules/izitoast/d
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/feed', feedRouter);
 
 // catch 404 and forward to error handler

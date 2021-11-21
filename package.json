@@ -6,7 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "better-sqlite3": "^7.0.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.0",
     "cookie-parser": "^1.4.5",
@@ -20,8 +19,7 @@
     "http-errors": "~1.6.3",
     "izitoast": "^1.4.0",
     "morgan": "~1.9.1",
-    "pigpio": "^2.0.1",
-    "sqlite3": "^4.2.0"
+    "pigpio": "^2.0.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0"
